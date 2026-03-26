@@ -207,8 +207,8 @@ export default function App() {
             className="relative"
           >
             <img 
-              src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&q=80&w=1000" 
-              alt="Flower growing through concrete" 
+              src="/billeder/WebBillede-1.jpg" 
+              alt="Vivforto - Mælkebøtte bryder gennem asfalt" 
               className="rounded-3xl shadow-2xl w-full aspect-[4/3] object-cover"
               referrerPolicy="no-referrer"
             />
