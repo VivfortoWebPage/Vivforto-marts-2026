@@ -198,7 +198,7 @@ export default function App() {
             className="relative"
           >
             <img 
-              src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=1920" 
+              src="https://res.cloudinary.com/duoz7qnsj/image/upload/v1775152480/WebBillede-1_zjyhfs.jpg" 
               alt="Vivforto - Mælkebøtte bryder gennem asfalt" 
               className="rounded-3xl shadow-2xl w-full aspect-[4/3] object-cover"
               referrerPolicy="no-referrer"
