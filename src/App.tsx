@@ -6,7 +6,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowRight, Mail, Youtube, ExternalLink, Play, X, CheckCircle2 } from "lucide-react";
-import dandelionImage from "/public/billeder/WebBillede-1.jpg";
 
 const SectionLabel = ({ children }: { children: React.ReactNode }) => (
   <span className="text-brand text-xs font-semibold tracking-widest uppercase mb-4 block">
@@ -21,15 +20,6 @@ const Button = ({ children, className = "", onClick }: { children: React.ReactNo
   >
     {children}
   </button>
-);
-
-const PlaceholderImage = ({ label, className = "" }: { label: string; className?: string }) => (
-  <div className={`bg-brand-light rounded-3xl flex flex-col items-center justify-center p-12 aspect-video ${className}`}>
-    <div className="bg-blue-200 p-4 rounded-xl mb-4">
-      <ExternalLink className="text-brand w-8 h-8" />
-    </div>
-    <span className="text-brand font-medium">{label}</span>
-  </div>
 );
 
 const RegistrationModal = ({ isOpen, onClose, courseTitle }: { isOpen: boolean; onClose: () => void; courseTitle: string }) => {
@@ -208,7 +198,7 @@ export default function App() {
             className="relative"
           >
             <img 
-              src={dandelionImage} 
+              src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=1920" 
               alt="Vivforto - Mælkebøtte bryder gennem asfalt" 
               className="rounded-3xl shadow-2xl w-full aspect-[4/3] object-cover"
               referrerPolicy="no-referrer"
@@ -226,7 +216,12 @@ export default function App() {
 
             {/* Beginner Course */}
             <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
-              <PlaceholderImage label="Billede 2-1" />
+              <img 
+                src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1920" 
+                alt="Begynder kursus" 
+                className="rounded-3xl shadow-xl w-full aspect-video object-cover"
+                referrerPolicy="no-referrer"
+              />
               <div>
                 <SectionLabel>BEGYNDER</SectionLabel>
                 <h3 className="text-3xl font-bold mb-6">En introduktion til Martinus Åndsvidenskab</h3>
@@ -277,7 +272,12 @@ export default function App() {
                   Tilmeld <ArrowRight className="w-4 h-4" />
                 </Button>
               </div>
-              <PlaceholderImage label="Billede 2-2" className="order-1 lg:order-2" />
+              <img 
+                src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&q=80&w=1920" 
+                alt="Avanceret kursus" 
+                className="rounded-3xl shadow-xl w-full aspect-video object-cover order-1 lg:order-2"
+                referrerPolicy="no-referrer"
+              />
             </div>
           </div>
         </section>
@@ -291,7 +291,12 @@ export default function App() {
             </div>
             
             <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
-              <PlaceholderImage label="Billede 3-1" />
+              <img 
+                src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1920" 
+                alt="Om Vivforto" 
+                className="rounded-3xl shadow-xl w-full aspect-video object-cover"
+                referrerPolicy="no-referrer"
+              />
               <div className="space-y-6 text-slate-600 leading-relaxed">
                 <p>
                   Vivforto er etableret med det formål at formidle Martinus' åndsvidenskab til naturvidenskabeligt interesserede ved at skære unødvendig kompleksitet væk. Virksomhedens mission er at bygge bro mellem naturvidenskab og åndsvidenskab gennem en letforståelig og pædagogisk formidlingsmetode, så denne visdom ikke blot forbliver teoretisk, men kan anvendes i praksis i en nutidig kontekst.
@@ -336,7 +341,12 @@ export default function App() {
                   Kenneth er særligt god til at beskrive essensen i Martinus' åndsvidenskab på en konkret og logisk måde, der taler til den moderne tænker. Han har en særlig forkærlighed for Per Bruus-Jensens systematik, som han anser for at være en effektiv metode til at gøre det komplekse stof let at tilgå.
                 </p>
               </div>
-              <PlaceholderImage label="Billede 3-2" />
+              <img 
+                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=1920" 
+                alt="Underviser Kenneth Starup Ibsen" 
+                className="rounded-3xl shadow-xl w-full aspect-video object-cover"
+                referrerPolicy="no-referrer"
+              />
             </div>
           </div>
         </section>
@@ -350,7 +360,12 @@ export default function App() {
             </div>
 
             <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
-              <PlaceholderImage label="Billede 5-1" />
+              <img 
+                src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=1920" 
+                alt="Martinus" 
+                className="rounded-3xl shadow-xl w-full aspect-video object-cover"
+                referrerPolicy="no-referrer"
+              />
               <div className="space-y-6 text-slate-600 leading-relaxed">
                 <p>
                   Martinus (1890–1981) voksede op under beskedne kår som plejebarn i den nordjyske by Sindal og havde kun en kort skolegang bag sig. Efter i sine yngre år at have arbejdet som blandt andet mejerist, vagtmand og postbud, oplevede han i 1921 som 30-årig en skelsættende "kosmisk indvielse" under en meditation. Denne oplevelse gav ham indsigt i den åndelige verden og overbeviste ham om, at alt liv dybest set er styret af kærlighed.
@@ -370,7 +385,12 @@ export default function App() {
                   Under elevtiden besvarede Martinus Pers mange spørgsmål, især om kosmologiens forenelighed med naturvidenskaben. I 1959 fik Per til opgave at udarbejde et korrespondancekursus, der systematisk fremstillede Martinus' verdensbillede. Dette førte til udviklingen af en række nye begreber, som i sidste ende resulterede i Pers hovedværk i fire bind, også kaldet "X-bøgerne".
                 </p>
               </div>
-              <PlaceholderImage label="Billede 5-2" className="order-1 lg:order-2" />
+              <img 
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=1920" 
+                alt="Per Bruus-Jensen" 
+                className="rounded-3xl shadow-xl w-full aspect-video object-cover order-1 lg:order-2"
+                referrerPolicy="no-referrer"
+              />
             </div>
           </div>
         </section>
