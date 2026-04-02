@@ -6,6 +6,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowRight, Mail, Youtube, ExternalLink, Play, X, CheckCircle2 } from "lucide-react";
+import dandelionImage from "/public/billeder/WebBillede-1.jpg";
 
 const SectionLabel = ({ children }: { children: React.ReactNode }) => (
   <span className="text-brand text-xs font-semibold tracking-widest uppercase mb-4 block">
@@ -207,7 +208,7 @@ export default function App() {
             className="relative"
           >
             <img 
-              src="/billeder/WebBillede-1.jpg" 
+              src={dandelionImage} 
               alt="Vivforto - Mælkebøtte bryder gennem asfalt" 
               className="rounded-3xl shadow-2xl w-full aspect-[4/3] object-cover"
               referrerPolicy="no-referrer"
