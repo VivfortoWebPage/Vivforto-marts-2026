@@ -217,8 +217,8 @@ export default function App() {
             {/* Beginner Course */}
             <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
               <img 
-                src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1920" 
-                alt="Begynder kursus" 
+                src="https://res.cloudinary.com/duoz7qnsj/image/upload/v1775196457/WebBillede-2_qj7pwp.png" 
+                alt="En introduktion til Martinus Åndsvidenskab" 
                 className="rounded-3xl shadow-xl w-full aspect-video object-cover"
                 referrerPolicy="no-referrer"
               />
@@ -273,8 +273,8 @@ export default function App() {
                 </Button>
               </div>
               <img 
-                src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&q=80&w=1920" 
-                alt="Avanceret kursus" 
+                src="https://res.cloudinary.com/duoz7qnsj/image/upload/v1775196650/WebBillede-3_wtyogw.png" 
+                alt="Avanceret kursus i Martinus Åndsvidenskab" 
                 className="rounded-3xl shadow-xl w-full aspect-video object-cover order-1 lg:order-2"
                 referrerPolicy="no-referrer"
               />
@@ -292,8 +292,8 @@ export default function App() {
             
             <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
               <img 
-                src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1920" 
-                alt="Om Vivforto" 
+                src="https://res.cloudinary.com/duoz7qnsj/image/upload/v1775197107/WebBillede-4_skioni.jpg" 
+                alt="Hvad er Vivforto?" 
                 className="rounded-3xl shadow-xl w-full aspect-video object-cover"
                 referrerPolicy="no-referrer"
               />
@@ -342,9 +342,9 @@ export default function App() {
                 </p>
               </div>
               <img 
-                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=1920" 
+                src="https://res.cloudinary.com/duoz7qnsj/image/upload/v1775197480/WebBillede-5_f2zh10.png" 
                 alt="Underviser Kenneth Starup Ibsen" 
-                className="rounded-3xl shadow-xl w-full aspect-video object-cover"
+                className="rounded-3xl shadow-xl w-full aspect-video object-contain bg-slate-100"
                 referrerPolicy="no-referrer"
               />
             </div>
@@ -361,9 +361,9 @@ export default function App() {
 
             <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
               <img 
-                src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=1920" 
+                src="https://res.cloudinary.com/duoz7qnsj/image/upload/v1775198612/WebBillede-61_d994kd.jpg" 
                 alt="Martinus" 
-                className="rounded-3xl shadow-xl w-full aspect-video object-cover"
+                className="rounded-3xl shadow-xl w-full aspect-video object-contain bg-slate-100"
                 referrerPolicy="no-referrer"
               />
               <div className="space-y-6 text-slate-600 leading-relaxed">
@@ -386,9 +386,9 @@ export default function App() {
                 </p>
               </div>
               <img 
-                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=1920" 
+                src="https://res.cloudinary.com/duoz7qnsj/image/upload/v1775199015/WebBillede-71_brqkh2.jpg" 
                 alt="Per Bruus-Jensen" 
-                className="rounded-3xl shadow-xl w-full aspect-video object-cover order-1 lg:order-2"
+                className="rounded-3xl shadow-xl w-full aspect-video object-contain bg-slate-100 order-1 lg:order-2"
                 referrerPolicy="no-referrer"
               />
             </div>
