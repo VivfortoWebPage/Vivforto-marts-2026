@@ -23,7 +23,6 @@ const Button = ({ children, className = "", onClick }: { children: React.ReactNo
 );
 
 const RegistrationModal = ({ isOpen, onClose, courseTitle }: { isOpen: boolean; onClose: () => void; courseTitle: string }) => {
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: "", email: "", website: "" });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -50,13 +49,9 @@ const RegistrationModal = ({ isOpen, onClose, courseTitle }: { isOpen: boolean; 
     // Open the user's email client
     window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
 
-    // Show success state
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      onClose();
-      setFormData({ name: "", email: "", website: "" });
-    }, 3000);
+    // Close modal and reset form
+    onClose();
+    setFormData({ name: "", email: "", website: "" });
   };
 
   return (
@@ -84,59 +79,47 @@ const RegistrationModal = ({ isOpen, onClose, courseTitle }: { isOpen: boolean; 
             </button>
 
             <div className="p-8 md:p-12">
-              {isSubmitted ? (
-                <div className="text-center py-8">
-                  <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <CheckCircle2 className="w-10 h-10 text-green-600" />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-2">Tak for din tilmelding!</h3>
-                  <p className="text-slate-500">Vi har modtaget din interesse for {courseTitle} og kontakter dig snarest.</p>
-                </div>
-              ) : (
-                <>
-                  <SectionLabel>TILMELDING</SectionLabel>
-                  <h3 className="text-2xl font-bold mb-2">{courseTitle}</h3>
-                  <p className="text-slate-500 mb-8">Udfyld formularen herunder, så kontakter vi dig med flere informationer.</p>
+              <SectionLabel>TILMELDING</SectionLabel>
+              <h3 className="text-2xl font-bold mb-2">{courseTitle}</h3>
+              <p className="text-slate-500 mb-8">Udfyld formularen herunder, så kontakter vi dig med flere informationer.</p>
 
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    {/* Honeypot field - hidden from users, visible to bots */}
-                    <div className="hidden">
-                      <label>Website (Do not fill this)</label>
-                      <input 
-                        type="text" 
-                        value={formData.website}
-                        onChange={(e) => setFormData({...formData, website: e.target.value})}
-                        autoComplete="off"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-1">Fulde navn</label>
-                      <input 
-                        required
-                        type="text" 
-                        value={formData.name}
-                        onChange={(e) => setFormData({...formData, name: e.target.value})}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition-all"
-                        placeholder="F.eks. Kenneth Starup Ibsen"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-1">E-mail adresse</label>
-                      <input 
-                        required
-                        type="email" 
-                        value={formData.email}
-                        onChange={(e) => setFormData({...formData, email: e.target.value})}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition-all"
-                        placeholder="din@email.dk"
-                      />
-                    </div>
-                    <Button className="w-full justify-center mt-4">
-                      Send tilmelding <ArrowRight className="w-4 h-4" />
-                    </Button>
-                  </form>
-                </>
-              )}
+              <form onSubmit={handleSubmit} className="space-y-4">
+                {/* Honeypot field - hidden from users, visible to bots */}
+                <div className="hidden">
+                  <label>Website (Do not fill this)</label>
+                  <input 
+                    type="text" 
+                    value={formData.website}
+                    onChange={(e) => setFormData({...formData, website: e.target.value})}
+                    autoComplete="off"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-1">Fulde navn</label>
+                  <input 
+                    required
+                    type="text" 
+                    value={formData.name}
+                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition-all"
+                    placeholder="F.eks. Kenneth Starup Ibsen"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-1">E-mail adresse</label>
+                  <input 
+                    required
+                    type="email" 
+                    value={formData.email}
+                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition-all"
+                    placeholder="din@email.dk"
+                  />
+                </div>
+                <Button className="w-full justify-center mt-4">
+                  Send tilmelding <ArrowRight className="w-4 h-4" />
+                </Button>
+              </form>
             </div>
           </motion.div>
         </div>
