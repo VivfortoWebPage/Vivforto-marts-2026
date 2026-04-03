@@ -46,8 +46,8 @@ const RegistrationModal = ({ isOpen, onClose, courseTitle }: { isOpen: boolean; 
       `Hej Kenneth,\n\nJeg vil gerne tilmelde mig kurset: ${courseTitle}\n\nNavn: ${formData.name}\nE-mail: ${formData.email}\n\nMed venlig hilsen,\n${formData.name}`
     );
     
-    // Open the user's email client
-    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+    // Open the user's email client in a new tab
+    window.open(`mailto:${email}?subject=${subject}&body=${body}`, '_blank');
 
     // Close modal and reset form
     onClose();
@@ -413,7 +413,16 @@ export default function App() {
               <ul className="space-y-4 text-slate-400">
                 <li className="flex items-center gap-2">
                   <Mail className="w-4 h-4" />
-                  <a href="mailto:kenneth@vivforto.dk" className="hover:text-white transition-colors">kenneth@vivforto.dk</a>
+                  <button 
+                    onClick={() => {
+                      const user = "kenneth";
+                      const domain = "vivforto.dk";
+                      window.open(`mailto:${user}@${domain}`, '_blank');
+                    }}
+                    className="hover:text-white transition-colors cursor-pointer text-left"
+                  >
+                    kenneth@vivforto.dk
+                  </button>
                 </li>
                 <li>CVR: 39676885</li>
                 <li className="flex items-center gap-2">
