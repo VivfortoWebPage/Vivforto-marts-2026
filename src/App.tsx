@@ -24,7 +24,7 @@ const Button = ({ children, className = "", onClick }: { children: React.ReactNo
 
 const RegistrationModal = ({ isOpen, onClose, courseTitle }: { isOpen: boolean; onClose: () => void; courseTitle: string }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "", website: "" });
+  const [formData, setFormData] = useState({ name: "", email: "", website: "" });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,12 +36,26 @@ const RegistrationModal = ({ isOpen, onClose, courseTitle }: { isOpen: boolean; 
       return;
     }
 
-    // Simulate submission
+    // Email obfuscation to prevent bot scraping
+    const user = "kenneth";
+    const domain = "vivforto.dk";
+    const email = `${user}@${domain}`;
+    
+    // Construct mailto link with pre-filled data
+    const subject = encodeURIComponent(`Tilmelding: ${courseTitle}`);
+    const body = encodeURIComponent(
+      `Hej Kenneth,\n\nJeg vil gerne tilmelde mig kurset: ${courseTitle}\n\nNavn: ${formData.name}\nE-mail: ${formData.email}\n\nMed venlig hilsen,\n${formData.name}`
+    );
+    
+    // Open the user's email client
+    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+
+    // Show success state
     setIsSubmitted(true);
     setTimeout(() => {
       setIsSubmitted(false);
       onClose();
-      setFormData({ name: "", email: "", phone: "" });
+      setFormData({ name: "", email: "", website: "" });
     }, 3000);
   };
 
@@ -115,17 +129,6 @@ const RegistrationModal = ({ isOpen, onClose, courseTitle }: { isOpen: boolean; 
                         onChange={(e) => setFormData({...formData, email: e.target.value})}
                         className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition-all"
                         placeholder="din@email.dk"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-1">Telefonnummer</label>
-                      <input 
-                        required
-                        type="tel" 
-                        value={formData.phone}
-                        onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition-all"
-                        placeholder="+45 00 00 00 00"
                       />
                     </div>
                     <Button className="w-full justify-center mt-4">
