@@ -323,7 +323,7 @@ export default function App() {
                   Vivfortos underviser er Kenneth Starup Ibsen, der i mere end 30 år har beskæftiget sig intenst med Martinus' åndsvidenskab. Denne dybe interesse har ført til en solid baggrund og en stor viden, som han formidler med en naturlig sans for pædagogik og klarhed.
                 </p>
                 <p>
-                  He er en velkendt skikkelse i miljøet og har holdt foredrag på både Martinus Institut i København og Martinus Center i Klint. Tidligere har han også været en del af rådet i Martinus-sagen.
+                  Han er en velkendt skikkelse i miljøet og har holdt foredrag på både Martinus Institut i København og Martinus Center i Klint. Tidligere har han også været en del af rådet i Martinus-sagen.
                 </p>
                 <p>
                   Kenneth er særligt god til at beskrive essensen i Martinus' åndsvidenskab på en konkret og logisk måde, der taler til den moderne tænker. Han har en særlig forkærlighed for Per Bruus-Jensens systematik, som han anser for at være en effektiv metode til at gøre det komplekse stof let at tilgå.
