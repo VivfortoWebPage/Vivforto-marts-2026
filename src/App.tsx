@@ -220,7 +220,7 @@ export default function App() {
                   <div><span className="font-semibold text-slate-700">Pris:</span> Oplysning følger</div>
                 </div>
                 <p className="text-slate-600 mb-8 leading-relaxed">
-                  Dette 1-dags kursus er en let og praktisk introduktion til åndsvidenskaben med særligt fokus på naturvidenskab. Vi kombinerer teori og øvelser og dykker ned i tre spændende hovedtemaer:
+                  Dette 1-dags-kursus er en let og praktisk introduktion til åndsvidenskaben med særligt fokus på naturvidenskab. Vi kombinerer teori og øvelser og dykker ned i tre spændende hovedtemaer:
                 </p>
                 <ul className="space-y-4 mb-10">
                   <li className="flex items-start gap-3">
@@ -229,7 +229,7 @@ export default function App() {
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-1.5 h-1.5 rounded-full bg-brand mt-2" />
-                    <p className="text-slate-600 font-medium">De 6 superkræfter: <span className="font-normal">Forstå din livskraft gennem energierne instinkt, tyngde, følelse, intelligens, intuition og hukommelse.</span></p>
+                    <p className="text-slate-600 font-medium">De seks superkræfter: <span className="font-normal">Forstå din livskraft gennem energierne instinkt, tyngde, følelse, intelligens, intuition og hukommelse.</span></p>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-1.5 h-1.5 rounded-full bg-brand mt-2" />
