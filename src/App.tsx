@@ -214,13 +214,13 @@ export default function App() {
                 <SectionLabel>BEGYNDER</SectionLabel>
                 <h3 className="text-3xl font-bold mb-6">En introduktion til Martinus Åndsvidenskab</h3>
                 <div className="grid grid-cols-2 gap-4 mb-8 text-sm text-slate-500">
-                  <div><span className="font-semibold text-slate-700">Dato:</span> Oplysning følger</div>
-                  <div><span className="font-semibold text-slate-700">By:</span> Oplysning følger</div>
-                  <div><span className="font-semibold text-slate-700">Adresse:</span> Oplysning følger</div>
-                  <div><span className="font-semibold text-slate-700">Pris:</span> Oplysning følger</div>
+                  <div><span className="font-semibold text-slate-700">Dato og tid:</span> 7. juni 2026 kl. 9-16</div>
+                  <div><span className="font-semibold text-slate-700">By:</span> Faaborg</div>
+                  <div><span className="font-semibold text-slate-700">Adresse:</span> Svendborgvej 175</div>
+                  <div><span className="font-semibold text-slate-700">Pris:</span> Gratis</div>
                 </div>
                 <p className="text-slate-600 mb-8 leading-relaxed">
-                  Dette 1-dags-kursus er en let og praktisk introduktion til åndsvidenskaben med særligt fokus på naturvidenskab. Vi kombinerer teori og øvelser og dykker ned i tre spændende hovedtemaer:
+                  Dette 1-dags-kursus er en let og praktisk introduktion til åndsvidenskaben. Vi kombinerer teori og øvelser og dykker ned i tre spændende hovedtemaer:
                 </p>
                 <ul className="space-y-4 mb-10">
                   <li className="flex items-start gap-3">
@@ -233,7 +233,7 @@ export default function App() {
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-1.5 h-1.5 rounded-full bg-brand mt-2" />
-                    <p className="text-slate-600 font-medium">Hvem er vi? <span className="font-normal">Bliv klogere på bevidstheden, din persontype, og hvordan vi selv er medskabere af vores oplevelser.</span></p>
+                    <p className="text-slate-600 font-medium">Hvem er vi? <span className="font-normal">Bliv klogere på, hvordan vi selv er medskabere af vores oplevelser. Kend din personlighedstype og dine egne præferencer.</span></p>
                   </li>
                 </ul>
                 <Button onClick={() => openModal("En introduktion til Martinus Åndsvidenskab")}>
