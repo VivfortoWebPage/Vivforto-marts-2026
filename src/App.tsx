@@ -216,7 +216,7 @@ export default function App() {
                 <div className="grid grid-cols-2 gap-4 mb-8 text-sm text-slate-500">
                   <div><span className="font-semibold text-slate-700">Dato og tid:</span> 7. juni 2026, kl. 9-16</div>
                   <div><span className="font-semibold text-slate-700">Pris:</span> Gratis</div>
-                  <div><span className="font-semibold text-slate-700">Sted:</span> Faaborg Fjordhotel</div>
+                  <div><span className="font-semibold text-slate-700">Sted:</span> Hotel Faaborg Fjord</div>
                   <div><span className="font-semibold text-slate-700">Adresse:</span> Svendborgvej 175, Faaborg</div>
                 </div>
                 <p className="text-slate-600 mb-8 leading-relaxed">
