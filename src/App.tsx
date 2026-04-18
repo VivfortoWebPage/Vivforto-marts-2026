@@ -95,14 +95,14 @@ const RegistrationModal = ({ isOpen, onClose, courseTitle }: { isOpen: boolean; 
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1">Fulde navn</label>
+                  <label className="block text-sm font-medium text-slate-700 mb-1">Navn</label>
                   <input 
                     required
                     type="text" 
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition-all"
-                    placeholder="F.eks. Kenneth Starup Ibsen"
+                    placeholder="f.eks. Ida Jensen"
                   />
                 </div>
                 <div>
