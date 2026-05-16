@@ -22,7 +22,7 @@ const Button = ({ children, className = "", onClick }: { children: React.ReactNo
   </button>
 );
 
-const RegistrationModal = ({ isOpen, onClose, courseTitle }: { isOpen: boolean; onClose: () => void; courseTitle: string }) => {
+const RegistrationModal = ({ isOpen, onClose, courseTitle, courseDate }: { isOpen: boolean; onClose: () => void; courseTitle: string; courseDate: string }) => {
   const [formData, setFormData] = useState({ name: "", email: "", website: "" });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -43,7 +43,7 @@ const RegistrationModal = ({ isOpen, onClose, courseTitle }: { isOpen: boolean; 
     // Construct mailto link with pre-filled data
     const subject = encodeURIComponent(`Tilmelding: ${courseTitle}`);
     const body = encodeURIComponent(
-      `Hej Kenneth,\n\nJeg vil gerne tilmelde mig kurset: ${courseTitle}\n\nNavn: ${formData.name}\nE-mail: ${formData.email}\n\nMed venlig hilsen,\n${formData.name}`
+      `Hej Kenneth,\n\nJeg vil gerne tilmelde mig kurset: ${courseTitle}\nStartdato: ${courseDate}\n\nNavn: ${formData.name}\nE-mail: ${formData.email}\n\nMed venlig hilsen,\n${formData.name}`
     );
     
     // Open the user's email client in a new tab
@@ -129,10 +129,10 @@ const RegistrationModal = ({ isOpen, onClose, courseTitle }: { isOpen: boolean; 
 };
 
 export default function App() {
-  const [modalConfig, setModalConfig] = useState({ isOpen: false, courseTitle: "" });
+  const [modalConfig, setModalConfig] = useState({ isOpen: false, courseTitle: "", courseDate: "" });
 
-  const openModal = (courseTitle: string) => {
-    setModalConfig({ isOpen: true, courseTitle });
+  const openModal = (courseTitle: string, courseDate: string) => {
+    setModalConfig({ isOpen: true, courseTitle, courseDate });
   };
 
   return (
@@ -141,6 +141,7 @@ export default function App() {
         isOpen={modalConfig.isOpen} 
         onClose={() => setModalConfig({ ...modalConfig, isOpen: false })} 
         courseTitle={modalConfig.courseTitle}
+        courseDate={modalConfig.courseDate}
       />
 
       {/* Header */}
@@ -236,7 +237,7 @@ export default function App() {
                     <p className="text-slate-600 font-medium">Hvem er vi? <span className="font-normal">Bliv klogere på, hvordan vi selv er medskabere af vores oplevelser. Kend din personlighedstype og dine egne præferencer.</span></p>
                   </li>
                 </ul>
-                <Button onClick={() => openModal("En introduktion til Martinus Åndsvidenskab")}>
+                <Button onClick={() => openModal("En introduktion til Martinus Åndsvidenskab", "7. juni 2026, kl. 9-16")}>
                   Tilmeld <ArrowRight className="w-4 h-4" />
                 </Button>
               </div>
@@ -256,7 +257,7 @@ export default function App() {
                 <p className="text-slate-600 mb-8 leading-relaxed">
                   Dette kursus tilbyder en grundig og trinvis gennemgang af de vigtigste kosmiske analyser. Med afsæt i Martinus tanker og Per Bruus-Jensens metodik forklares begreberne ud fra en naturvidenskabelig vinkel. Vi følger en 'abstraktionsmodel', der guider dig sikkert fra det konkrete til det abstrakte.
                 </p>
-                <Button onClick={() => openModal("Avanceret kursus i Martinus Åndsvidenskab")}>
+                <Button onClick={() => openModal("Avanceret kursus i Martinus Åndsvidenskab", "Oplysning følger")}>
                   Tilmeld <ArrowRight className="w-4 h-4" />
                 </Button>
               </div>
