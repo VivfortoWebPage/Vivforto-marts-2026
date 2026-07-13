@@ -215,10 +215,10 @@ export default function App() {
                 <SectionLabel>BEGYNDER</SectionLabel>
                 <h3 className="text-3xl font-bold mb-6">En introduktion til Martinus Åndsvidenskab</h3>
                 <div className="grid grid-cols-2 gap-4 mb-8 text-sm text-slate-500">
-                  <div><span className="font-semibold text-slate-700">Dato og tid:</span> 7. juni 2026, kl. 9-16</div>
+                  <div><span className="font-semibold text-slate-700">Dato og tid:</span> Oktober 2026. Dato og tid meldes ud senere</div>
                   <div><span className="font-semibold text-slate-700">Pris:</span> Gratis</div>
-                  <div><span className="font-semibold text-slate-700">Sted:</span> Hotel Faaborg Fjord</div>
-                  <div><span className="font-semibold text-slate-700">Adresse:</span> Svendborgvej 175, Faaborg</div>
+                  <div><span className="font-semibold text-slate-700">Sted:</span> København</div>
+                  <div><span className="font-semibold text-slate-700">Adresse:</span> Meldes ud senere</div>
                 </div>
                 <p className="text-slate-600 mb-8 leading-relaxed">
                   Dette 1-dags-kursus er en let og praktisk introduktion til åndsvidenskaben. Vi kombinerer teori og øvelser og dykker ned i tre spændende hovedtemaer:
@@ -237,7 +237,7 @@ export default function App() {
                     <p className="text-slate-600 font-medium">Hvem er vi? <span className="font-normal">Bliv klogere på, hvordan vi selv er medskabere af vores oplevelser. Kend din personlighedstype og dine egne præferencer.</span></p>
                   </li>
                 </ul>
-                <Button onClick={() => openModal("En introduktion til Martinus Åndsvidenskab", "7. juni 2026, kl. 9-16")}>
+                <Button onClick={() => openModal("En introduktion til Martinus Åndsvidenskab", "Oktober 2026. Dato og tid meldes ud senere")}>
                   Tilmeld <ArrowRight className="w-4 h-4" />
                 </Button>
               </div>
