@@ -3,9 +3,27 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowRight, Mail, Youtube, ExternalLink, Play, X, CheckCircle2 } from "lucide-react";
+
+interface Video {
+  id: string;
+  title: string;
+  description: string;
+  youtubeUrl: string;
+  embedUrl: string;
+}
+
+const VIDEOS: Video[] = [
+  {
+    id: "IDmbnTWyJ3Q",
+    title: "Introduktion til Vivforto",
+    description: "Hør om Vivforto og missionen om at bygge bro mellem naturvidenskab og Martinus' åndsvidenskab.",
+    youtubeUrl: "https://youtu.be/IDmbnTWyJ3Q",
+    embedUrl: "https://www.youtube.com/embed/IDmbnTWyJ3Q"
+  }
+];
 
 const SectionLabel = ({ children }: { children: React.ReactNode }) => (
   <span className="text-brand text-xs font-semibold tracking-widest uppercase mb-4 block">
@@ -130,9 +148,46 @@ const RegistrationModal = ({ isOpen, onClose, courseTitle, courseDate }: { isOpe
 
 export default function App() {
   const [modalConfig, setModalConfig] = useState({ isOpen: false, courseTitle: "", courseDate: "" });
+  const [currentView, setCurrentView] = useState<'home' | 'videoer'>('home');
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash === "#videoer") {
+        setCurrentView("videoer");
+        window.scrollTo(0, 0);
+      } else {
+        setCurrentView("home");
+      }
+    };
+    handleHashChange();
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
 
   const openModal = (courseTitle: string, courseDate: string) => {
     setModalConfig({ isOpen: true, courseTitle, courseDate });
+  };
+
+  const navigateTo = (view: 'home' | 'videoer', sectionId?: string) => {
+    setCurrentView(view);
+    if (view === 'videoer') {
+      window.location.hash = 'videoer';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      if (sectionId) {
+        window.location.hash = sectionId;
+        setTimeout(() => {
+          const el = document.getElementById(sectionId);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 50);
+      } else {
+        window.location.hash = '';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
   };
 
   return (
@@ -147,23 +202,93 @@ export default function App() {
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <a href="/" className="flex items-center gap-2">
+          <button onClick={() => navigateTo('home')} className="flex items-center gap-2 cursor-pointer">
             <img 
               src="https://res.cloudinary.com/duoz7qnsj/image/upload/v1775205367/Logo_kxswjc.png" 
               alt="Vivforto Logo" 
               className="h-10 w-auto"
               referrerPolicy="no-referrer"
             />
-          </a>
+          </button>
           <nav className="flex items-center gap-8">
-            <a href="#kurser" className="text-slate-600 hover:text-brand font-medium transition-colors">Kursus</a>
-            <a href="#om" className="text-slate-600 hover:text-brand font-medium transition-colors">Om</a>
+            <button 
+              onClick={() => navigateTo('home', 'kurser')} 
+              className={`font-medium transition-colors cursor-pointer ${currentView === 'home' ? 'text-slate-600 hover:text-brand' : 'text-slate-600 hover:text-brand'}`}
+            >
+              Kursus
+            </button>
+            <button 
+              onClick={() => navigateTo('home', 'om')} 
+              className="text-slate-600 hover:text-brand font-medium transition-colors cursor-pointer"
+            >
+              Om
+            </button>
+            <button 
+              onClick={() => navigateTo('videoer')} 
+              className={`font-medium transition-colors cursor-pointer ${currentView === 'videoer' ? 'text-brand font-semibold' : 'text-slate-600 hover:text-brand'}`}
+            >
+              Videoer
+            </button>
           </nav>
         </div>
       </header>
 
       <main className="flex-grow pt-20">
-        {/* Hero Section */}
+        {currentView === 'videoer' ? (
+          <section className="max-w-7xl mx-auto px-6 py-16 lg:py-24">
+            <motion.div 
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="mb-12 text-center lg:text-left">
+                <SectionLabel>VIDEOER</SectionLabel>
+                <h1 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+                  Lær om livet
+                </h1>
+                <p className="text-lg text-slate-600 max-w-2xl leading-relaxed">
+                  Udforsk de seneste videoer og oplæg om Martinus Åndsvidenskab og brobygningen til naturvidenskab.
+                </p>
+              </div>
+
+              <div className="grid gap-10 lg:grid-cols-2">
+                {VIDEOS.map((video) => (
+                  <div key={video.id} className="bg-white rounded-3xl p-6 shadow-xl border border-slate-100 flex flex-col justify-between">
+                    <div>
+                      <div className="relative rounded-2xl overflow-hidden shadow-md aspect-video bg-slate-900 mb-6">
+                        <iframe 
+                          className="absolute inset-0 w-full h-full"
+                          src={video.embedUrl} 
+                          title={video.title} 
+                          frameBorder="0" 
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                          referrerPolicy="strict-origin-when-cross-origin" 
+                          allowFullScreen
+                        ></iframe>
+                      </div>
+                      <h2 className="text-2xl font-bold text-slate-900 mb-3">{video.title}</h2>
+                      <p className="text-slate-600 leading-relaxed mb-6">{video.description}</p>
+                    </div>
+                    <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+                      <a 
+                        href={video.youtubeUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="inline-flex items-center gap-2 text-brand font-medium hover:underline text-sm"
+                      >
+                        <Youtube className="w-4 h-4 text-red-600" />
+                        Åbn i YouTube
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </section>
+        ) : (
+          <>
+            {/* Hero Section */}
         <section className="max-w-7xl mx-auto px-6 py-20 lg:py-32 grid lg:grid-cols-2 gap-12 items-center">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
@@ -383,31 +508,46 @@ export default function App() {
             </div>
           </div>
         </section>
-      </main>
+      </>
+    )}
+  </main>
 
-      {/* Footer */}
-      <footer className="bg-slate-900 text-white py-20 mt-auto">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-12 mb-16">
-            <div>
-              <a href="/" className="flex items-center gap-2 mb-4">
-                <img 
-                  src="https://res.cloudinary.com/duoz7qnsj/image/upload/v1775205367/Logo_kxswjc.png" 
-                  alt="Vivforto Logo" 
-                  className="h-10 w-auto brightness-0 invert"
-                  referrerPolicy="no-referrer"
-                />
-              </a>
-              <p className="text-slate-400">Viden om livet</p>
-            </div>
-            
-            <div>
-              <h4 className="text-lg font-bold mb-6">Navigation</h4>
-              <ul className="space-y-4 text-slate-400">
-                <li><a href="#kurser" className="hover:text-white transition-colors">Kursus</a></li>
-                <li><a href="#om" className="hover:text-white transition-colors">Om</a></li>
-              </ul>
-            </div>
+  {/* Footer */}
+  <footer className="bg-slate-900 text-white py-20 mt-auto">
+    <div className="max-w-7xl mx-auto px-6">
+      <div className="grid md:grid-cols-3 gap-12 mb-16">
+        <div>
+          <button onClick={() => navigateTo('home')} className="flex items-center gap-2 mb-4 cursor-pointer">
+            <img 
+              src="https://res.cloudinary.com/duoz7qnsj/image/upload/v1775205367/Logo_kxswjc.png" 
+              alt="Vivforto Logo" 
+              className="h-10 w-auto brightness-0 invert"
+              referrerPolicy="no-referrer"
+            />
+          </button>
+          <p className="text-slate-400">Viden om livet</p>
+        </div>
+        
+        <div>
+          <h4 className="text-lg font-bold mb-6">Navigation</h4>
+          <ul className="space-y-4 text-slate-400">
+            <li>
+              <button onClick={() => navigateTo('home', 'kurser')} className="hover:text-white transition-colors cursor-pointer">
+                Kursus
+              </button>
+            </li>
+            <li>
+              <button onClick={() => navigateTo('home', 'om')} className="hover:text-white transition-colors cursor-pointer">
+                Om
+              </button>
+            </li>
+            <li>
+              <button onClick={() => navigateTo('videoer')} className="hover:text-white transition-colors cursor-pointer">
+                Videoer
+              </button>
+            </li>
+          </ul>
+        </div>
 
             <div>
               <h4 className="text-lg font-bold mb-6">Kontakt</h4>
