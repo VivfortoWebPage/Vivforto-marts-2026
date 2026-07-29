@@ -5,7 +5,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ArrowRight, Mail, Youtube, ExternalLink, Play, X, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Mail, Youtube, ExternalLink, Play, X, CheckCircle2, Menu } from "lucide-react";
 
 interface Video {
   id: string;
@@ -156,6 +156,7 @@ const RegistrationModal = ({ isOpen, onClose, courseTitle, courseDate }: { isOpe
 export default function App() {
   const [modalConfig, setModalConfig] = useState({ isOpen: false, courseTitle: "", courseDate: "" });
   const [currentView, setCurrentView] = useState<'forside' | 'kurser' | 'om' | 'videoer'>('forside');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -187,6 +188,7 @@ export default function App() {
 
   const navigateTo = (view: 'forside' | 'kurser' | 'om' | 'videoer') => {
     setCurrentView(view);
+    setMobileMenuOpen(false);
     window.location.hash = view;
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -211,7 +213,9 @@ export default function App() {
               referrerPolicy="no-referrer"
             />
           </button>
-          <nav className="flex items-center gap-8">
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-8">
             <button 
               onClick={() => navigateTo('forside')} 
               className={`font-medium transition-colors cursor-pointer ${currentView === 'forside' ? 'text-brand font-semibold' : 'text-slate-600 hover:text-brand'}`}
@@ -222,7 +226,7 @@ export default function App() {
               onClick={() => navigateTo('kurser')} 
               className={`font-medium transition-colors cursor-pointer ${currentView === 'kurser' ? 'text-brand font-semibold' : 'text-slate-600 hover:text-brand'}`}
             >
-              Kursus
+              Kurser
             </button>
             <button 
               onClick={() => navigateTo('om')} 
@@ -237,7 +241,54 @@ export default function App() {
               Videoer
             </button>
           </nav>
+
+          {/* Mobile Menu Button */}
+          <button 
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden p-2 text-slate-700 hover:text-brand transition-colors cursor-pointer rounded-lg hover:bg-slate-50"
+            aria-label="Toggle navigation menu"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
+
+        {/* Mobile Navigation Dropdown */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.2 }}
+              className="md:hidden bg-white border-b border-slate-100 overflow-hidden px-6 py-4 flex flex-col gap-2 shadow-lg"
+            >
+              <button 
+                onClick={() => navigateTo('forside')} 
+                className={`text-left py-2 px-3 rounded-lg font-medium transition-colors cursor-pointer ${currentView === 'forside' ? 'text-brand bg-brand/5 font-semibold' : 'text-slate-600 hover:bg-slate-50 hover:text-brand'}`}
+              >
+                Forside
+              </button>
+              <button 
+                onClick={() => navigateTo('kurser')} 
+                className={`text-left py-2 px-3 rounded-lg font-medium transition-colors cursor-pointer ${currentView === 'kurser' ? 'text-brand bg-brand/5 font-semibold' : 'text-slate-600 hover:bg-slate-50 hover:text-brand'}`}
+              >
+                Kurser
+              </button>
+              <button 
+                onClick={() => navigateTo('om')} 
+                className={`text-left py-2 px-3 rounded-lg font-medium transition-colors cursor-pointer ${currentView === 'om' ? 'text-brand bg-brand/5 font-semibold' : 'text-slate-600 hover:bg-slate-50 hover:text-brand'}`}
+              >
+                Om
+              </button>
+              <button 
+                onClick={() => navigateTo('videoer')} 
+                className={`text-left py-2 px-3 rounded-lg font-medium transition-colors cursor-pointer ${currentView === 'videoer' ? 'text-brand bg-brand/5 font-semibold' : 'text-slate-600 hover:bg-slate-50 hover:text-brand'}`}
+              >
+                Videoer
+              </button>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
 
       <main className="flex-grow pt-20">
@@ -548,7 +599,7 @@ export default function App() {
                 </li>
                 <li>
                   <button onClick={() => navigateTo('kurser')} className="hover:text-white transition-colors cursor-pointer">
-                    Kursus
+                    Kurser
                   </button>
                 </li>
                 <li>
