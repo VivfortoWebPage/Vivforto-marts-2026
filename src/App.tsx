@@ -22,6 +22,13 @@ const VIDEOS: Video[] = [
     description: "Hør om Vivforto og missionen om at bygge bro mellem naturvidenskab og Martinus' åndsvidenskab.",
     youtubeUrl: "https://youtu.be/rw00kqYM3MU",
     embedUrl: "https://www.youtube.com/embed/rw00kqYM3MU"
+  },
+  {
+    id: "pvCuL0P_8yY",
+    title: "1. Vor oplevelse af verden",
+    description: "Rejsen begynder her...",
+    youtubeUrl: "https://youtu.be/pvCuL0P_8yY",
+    embedUrl: "https://www.youtube.com/embed/pvCuL0P_8yY"
   }
 ];
 
@@ -251,7 +258,7 @@ export default function App() {
                 </p>
               </div>
 
-              <div className="grid gap-10 lg:grid-cols-2">
+              <div className="flex flex-col gap-10 max-w-4xl mx-auto">
                 {VIDEOS.map((video) => (
                   <div key={video.id} className="bg-white rounded-3xl p-6 shadow-xl border border-slate-100 flex flex-col justify-between">
                     <div>
