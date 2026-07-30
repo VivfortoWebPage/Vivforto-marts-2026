@@ -293,34 +293,32 @@ export default function App() {
 
       <main className="flex-grow pt-20">
         {currentView === 'forside' ? (
-          <section className="max-w-7xl mx-auto px-6 py-20 lg:py-32 grid lg:grid-cols-2 gap-12 items-center">
+          <section className="py-16 lg:py-24">
             <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
+              className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center"
             >
-              <h1 className="text-5xl lg:text-7xl font-bold text-slate-900 leading-tight mb-8">
-                Udforsk Martinus Åndsvidenskab
-              </h1>
-              <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-                Naturvidenskab møder åndsvidenskab
-              </p>
-              <p className="text-lg text-slate-500 mb-10 leading-relaxed max-w-lg">
-                Har du en dyb interesse for naturvidenskab, men samtidig mærker en nysgerrighed efter, hvad der ligger ud over den fysiske verden? Så er du kommet til det rette sted. Hos Vivforto kombinerer vi det bedste fra de to verdener.
-              </p>
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3 }}
-              className="relative"
-            >
-              <img 
-                src="https://res.cloudinary.com/duoz7qnsj/image/upload/v1775152480/WebBillede-1_zjyhfs.jpg" 
-                alt="Vivforto - Mælkebøtte bryder gennem asfalt" 
-                className="rounded-3xl shadow-2xl w-full aspect-[4/3] object-cover"
-                referrerPolicy="no-referrer"
-              />
+              <div>
+                <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-slate-900 leading-tight mb-8 break-words">
+                  Udforsk Martinus Åndsvidenskab
+                </h1>
+                <p className="text-xl text-slate-600 mb-8 leading-relaxed">
+                  Naturvidenskab møder åndsvidenskab
+                </p>
+                <p className="text-lg text-slate-500 mb-10 leading-relaxed max-w-lg">
+                  Har du en dyb interesse for naturvidenskab, men samtidig mærker en nysgerrighed efter, hvad der ligger ud over den fysiske verden? Så er du kommet til det rette sted. Hos Vivforto kombinerer vi det bedste fra de to verdener.
+                </p>
+              </div>
+              <div>
+                <img 
+                  src="https://res.cloudinary.com/duoz7qnsj/image/upload/v1775152480/WebBillede-1_zjyhfs.jpg" 
+                  alt="Vivforto - Mælkebøtte bryder gennem asfalt" 
+                  className="rounded-3xl shadow-2xl w-full aspect-[4/3] object-cover"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
             </motion.div>
           </section>
         ) : currentView === 'kurser' ? (
