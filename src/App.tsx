@@ -17,11 +17,11 @@ interface Video {
 
 const VIDEOS: Video[] = [
   {
-    id: "RcpVxIGk5W0",
+    id: "IIslA5y3VQw",
     title: "Introduktion til Vivforto",
     description: "Hør om Vivforto og missionen om at bygge bro mellem naturvidenskab og Martinus' åndsvidenskab.",
-    youtubeUrl: "https://youtu.be/RcpVxIGk5W0",
-    embedUrl: "https://www.youtube.com/embed/RcpVxIGk5W0"
+    youtubeUrl: "https://youtu.be/IIslA5y3VQw",
+    embedUrl: "https://www.youtube.com/embed/IIslA5y3VQw"
   },
   {
     id: "6B-YOK1FAiU",
@@ -441,7 +441,7 @@ export default function App() {
                   <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-video bg-slate-900">
                     <iframe 
                       className="absolute inset-0 w-full h-full"
-                      src="https://www.youtube.com/embed/RcpVxIGk5W0" 
+                      src="https://www.youtube.com/embed/IIslA5y3VQw" 
                       title="YouTube video player" 
                       frameBorder="0" 
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -632,7 +632,7 @@ export default function App() {
                 <li>CVR: 39676885</li>
                 <li className="flex items-center gap-2">
                   <Youtube className="w-4 h-4" />
-                  <a href="https://youtu.be/RcpVxIGk5W0" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">YouTube</a>
+                  <a href="https://youtu.be/IIslA5y3VQw" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">YouTube</a>
                 </li>
               </ul>
             </div>
