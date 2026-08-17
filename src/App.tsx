@@ -24,11 +24,11 @@ const VIDEOS: Video[] = [
     embedUrl: "https://www.youtube.com/embed/RcpVxIGk5W0"
   },
   {
-    id: "c8K1pJ0-Bo8",
+    id: "6B-YOK1FAiU",
     title: "1. Vor oplevelse af verden",
     description: "Rejsen begynder her...",
-    youtubeUrl: "https://youtu.be/c8K1pJ0-Bo8",
-    embedUrl: "https://www.youtube.com/embed/c8K1pJ0-Bo8"
+    youtubeUrl: "https://youtu.be/6B-YOK1FAiU",
+    embedUrl: "https://www.youtube.com/embed/6B-YOK1FAiU"
   }
 ];
 
