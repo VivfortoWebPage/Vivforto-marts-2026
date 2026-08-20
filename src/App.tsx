@@ -36,6 +36,13 @@ const VIDEOS: Video[] = [
     description: "Hvordan kan man beskrive den fysiske verden?",
     youtubeUrl: "https://youtu.be/EcCqjO3nh2A",
     embedUrl: "https://www.youtube.com/embed/EcCqjO3nh2A"
+  },
+  {
+    id: "exCjqJYORJk",
+    title: "3. De fem bevægelsesarter",
+    description: "Hvad er bevægelse?",
+    youtubeUrl: "https://youtu.be/exCjqJYORJk",
+    embedUrl: "https://www.youtube.com/embed/exCjqJYORJk"
   }
 ];
 
