@@ -31,11 +31,11 @@ const VIDEOS: Video[] = [
     embedUrl: "https://www.youtube.com/embed/6B-YOK1FAiU"
   },
   {
-    id: "5BpjAPEdrTk",
+    id: "MS727GgG1c8",
     title: "2. Den fysiske verden",
     description: "Hvordan kan man beskrive den fysiske verden?",
-    youtubeUrl: "https://youtu.be/5BpjAPEdrTk",
-    embedUrl: "https://www.youtube.com/embed/5BpjAPEdrTk"
+    youtubeUrl: "https://youtu.be/MS727GgG1c8",
+    embedUrl: "https://www.youtube.com/embed/MS727GgG1c8"
   },
   {
     id: "exCjqJYORJk",
