@@ -38,11 +38,11 @@ const VIDEOS: Video[] = [
     embedUrl: "https://www.youtube.com/embed/MS727GgG1c8"
   },
   {
-    id: "exCjqJYORJk",
+    id: "9qZxhATv118",
     title: "3. De fem bevægelsesarter",
     description: "Hvad er bevægelse?",
-    youtubeUrl: "https://youtu.be/exCjqJYORJk",
-    embedUrl: "https://www.youtube.com/embed/exCjqJYORJk"
+    youtubeUrl: "https://youtu.be/9qZxhATv118",
+    embedUrl: "https://www.youtube.com/embed/9qZxhATv118"
   }
 ];
 
