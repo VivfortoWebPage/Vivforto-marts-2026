@@ -45,11 +45,11 @@ const VIDEOS: Video[] = [
     embedUrl: "https://www.youtube.com/embed/9qZxhATv118"
   },
   {
-    id: "AKrF4-6eqNg",
+    id: "wp786SORL4U",
     title: "4. Stambevægelse, rum, tid, forvandling og materie",
     description: "Hvordan vi subjektivt oplever noget objektivt",
-    youtubeUrl: "https://youtu.be/AKrF4-6eqNg",
-    embedUrl: "https://www.youtube.com/embed/AKrF4-6eqNg"
+    youtubeUrl: "https://youtu.be/wp786SORL4U",
+    embedUrl: "https://www.youtube.com/embed/wp786SORL4U"
   }
 ];
 
