@@ -43,6 +43,13 @@ const VIDEOS: Video[] = [
     description: "Hvad er bevægelse?",
     youtubeUrl: "https://youtu.be/9qZxhATv118",
     embedUrl: "https://www.youtube.com/embed/9qZxhATv118"
+  },
+  {
+    id: "AKrF4-6eqNg",
+    title: "4. Stambevægelse, rum, tid, forvandling og materie",
+    description: "Hvordan vi subjektivt oplever noget objektivt",
+    youtubeUrl: "https://youtu.be/AKrF4-6eqNg",
+    embedUrl: "https://www.youtube.com/embed/AKrF4-6eqNg"
   }
 ];
 
